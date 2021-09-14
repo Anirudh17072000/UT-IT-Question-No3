@@ -17,7 +17,7 @@ class EmailValidatorTest extends AnyFunSuite {
 
     val expectedResult = false
     val resultingValue = emailValidator_obj.emailIsValid("anirudh8853gmail.com")
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
   test("Checking if it returns false on  invalid Email with special characters in domain name") {
@@ -31,13 +31,13 @@ class EmailValidatorTest extends AnyFunSuite {
 
     val expectedResult = false
     val resultingValue = emailValidator_obj.emailIsValid("anirudh885?*@gmail.com")
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
   test("Checking if it returns false on Email with invalid Top Level Domain") {
 
     val expectedResult = false
     val resultingValue = emailValidator_obj.emailIsValid("anirudh8853@gmail.crm")
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 }

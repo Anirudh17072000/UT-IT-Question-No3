@@ -42,7 +42,7 @@ class EmailValidator {
 
   def topLevelDomain (emailId: String): Boolean = {
 
-    if (! checkTheSymbol() (emailId) ) return false
+    if (! checkTheSymbol(emailId) ) return false
     val index = emailId.indexOf (".")
     val toplevelDomain = emailId.substring (index)
     if (toplevelDomain.equals (".com") || toplevelDomain.equals (".net") || toplevelDomain.equals (".org") || toplevelDomain.equals (".co.in"))

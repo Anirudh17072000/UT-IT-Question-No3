@@ -14,19 +14,19 @@ class CompanyValidatorTest extends AnyFunSuite {
   test("Check if companyOne is not present in database and is thus a valid entry") {
     val expectedResult = true
     val resultingValue = (new CompanyValidator).companyIsValid(firstCompany)
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
   test("Check if companyTwo is an invalid entry as the company already exists in the database") {
     val expectedResult = false
     val resultingValue = (new CompanyValidator).companyIsValid(secondCompany)
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
   test("Check if companyThree is not present in database but having invalid email ID without '@'is thus an invalid entry") {
     val expectedResult = false
     val resultingValue = (new CompanyValidator).companyIsValid(thirdCompany)
-    intercept(expectedResult == resultingValue)
+    assert(expectedResult == resultingValue)
   }
 
 }

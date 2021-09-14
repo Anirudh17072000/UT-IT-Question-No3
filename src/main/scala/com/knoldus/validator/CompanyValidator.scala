@@ -11,10 +11,10 @@ class CompanyValidator {
     val companyExist = database_obj.getCompanyByName(company.name)
 
     val emailValidator = new EmailValidator
-    val checkEmail = emailValidator.emailIdIsValid(company.emailId)
+    val checkEmail = emailValidator.emailIsValid(company.emailId)
     if (checkEmail && companyExist == None)
       return true
     false
-
+  }
 
   }
