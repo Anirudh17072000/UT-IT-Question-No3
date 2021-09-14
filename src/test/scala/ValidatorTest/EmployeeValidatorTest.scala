@@ -1,0 +1,43 @@
+package ValidatorTest
+
+import org.scalatest.funsuite.AnyFunSuite
+import com.knoldus.models.Employee
+import com.knoldus.validator.EmployeeValidator
+class EmployeeValidatorTest extends AnyFunSuite{
+
+  val firstEmployee = Employee("Mohd", "Amir", 28,50000, "Software Consultant", "Infosys", "mohdAmir123@gmail.com" )
+  val secondEmployee = Employee("Jassi", "Gill", 26,30000, "Software Trainee", "Philips", "gilljassi@gmail.com" )
+  val thirdEmployee = Employee("Dawayne", "Bravo", 23,65000, "Sr. Software Consultant", "TCS", "DjBravo43@gmail.com" )
+  val fourthEmployee = Employee("Steve", "Jobs", 21,25000, "Software Trainee", "Knoldus", "Captainamerica21?@gmail.com" )
+
+
+  test("Checking if Employee- firstEmployee working in Infosys(company present in Database)"){
+    val expectResult = true
+    val result = (new EmployeeValidator).employeeIsValid(firstEmployee)
+    intercept(expectResult == result)
+  }
+
+
+  test("Checking if Employee- secondEmployee working in Philips(company present in Database)"){
+
+    val expectResult = true
+    val result = (new EmployeeValidator).employeeIsValid(secondEmployee)
+    intercept(expectResult == result)
+  }
+
+
+  test("Checking if Employee- thirdEmployee working in company TCS(company not present in Database)"){
+
+    val expectResult = false
+    val result = (new EmployeeValidator).employeeIsValid(thirdEmployee)
+    intercept(expectResult == result)
+  }
+
+  test("Checking if Employee- fourthEmployee working in Knoldus(company present in Database)"){
+    val expectResult = false
+    val result = (new EmployeeValidator).employeeIsValid(fourthEmployee)
+    intercept(expectResult == result)
+  }
+
+}
+
